@@ -16,6 +16,7 @@ namespace Cu.Pre.Delegates.Events.Cons
             int numberOfPints = 10;
             PintDish pintDish = new PintDish(numberOfPints);
             pintDish.PintStarted += PintDish_PintStarted;
+            pintDish.PintCompleted += PintDish_PintCompleted;
 
             for (int i = 0; i < numberOfPints; i++)
             {
@@ -31,6 +32,11 @@ namespace Cu.Pre.Delegates.Events.Cons
             }
 
             Console.ReadLine();
+        }
+
+        private void PintDish_PintCompleted(object sender, PintCompletedArgs e)
+        {
+            Console.WriteLine($"{e.Brand} brewed by {e.Waiter}, cheers!");
         }
 
         private void PintDish_PintStarted(object sender, EventArgs e)
