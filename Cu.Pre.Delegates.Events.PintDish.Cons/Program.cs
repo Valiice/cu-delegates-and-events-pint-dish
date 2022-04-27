@@ -8,7 +8,8 @@ namespace Cu.Pre.Delegates.Events.Cons
         static void Main(string[] args)
         {
             int numberOfPints = 10;
-            var pintDish = new PintDish(numberOfPints);
+            PintDish pintDish = new PintDish(numberOfPints);
+            pintDish.PintStarted += PintDish_PintStarted;
 
             for (int i = 0; i < numberOfPints; i++)
             {
@@ -24,6 +25,11 @@ namespace Cu.Pre.Delegates.Events.Cons
             }
 
             Console.ReadLine();
+        }
+
+        private static void PintDish_PintStarted(object sender, EventArgs e)
+        {
+            Console.WriteLine($"Brewing a new pint...");
         }
     }
 }
