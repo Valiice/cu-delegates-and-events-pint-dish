@@ -7,6 +7,12 @@ namespace Cu.Pre.Delegates.Events.Cons
     {
         static void Main(string[] args)
         {
+            Program program = new Program();
+            program.Run();
+        }
+
+        public void Run()
+        {
             int numberOfPints = 10;
             PintDish pintDish = new PintDish(numberOfPints);
             pintDish.PintStarted += PintDish_PintStarted;
@@ -27,7 +33,7 @@ namespace Cu.Pre.Delegates.Events.Cons
             Console.ReadLine();
         }
 
-        private static void PintDish_PintStarted(object sender, EventArgs e)
+        private void PintDish_PintStarted(object sender, EventArgs e)
         {
             Console.WriteLine($"Brewing a new pint...");
         }
