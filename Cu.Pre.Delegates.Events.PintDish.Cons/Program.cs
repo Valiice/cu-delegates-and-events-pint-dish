@@ -32,4 +32,5 @@ namespace Cu.Pre.Delegates.Events.Cons
             Console.WriteLine($"Brewing a new pint...");
         }
     }
+    
 }
