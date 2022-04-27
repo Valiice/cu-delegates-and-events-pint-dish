@@ -15,15 +15,18 @@ namespace Cu.Pre.Delegates.Events.Cons
         {
             int numberOfPints = 10;
             PintDish pintDish = new PintDish(numberOfPints);
+            pintDish.DishStarted += PintDish_DishStarted;
+            pintDish.DishCompleted += PintDish_DishCompleted;
             pintDish.PintStarted += PintDish_PintStarted;
             pintDish.PintCompleted += PintDish_PintCompleted;
 
+            pintDish.StartDish();
             for (int i = 0; i < numberOfPints; i++)
             {
                 try
                 {
                     pintDish.AddPint();
-                    Console.WriteLine($"Pint {pintDish.PintCount} added to dish");
+                    Console.WriteLine($"Pint {pintDish.PintCount} added");
                 }
                 catch (Exception ex)
                 {
@@ -32,6 +35,16 @@ namespace Cu.Pre.Delegates.Events.Cons
             }
 
             Console.ReadLine();
+        }
+
+        private void PintDish_DishCompleted(object sender, DishCompletedArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void PintDish_DishStarted(object sender, DishStartedArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void PintDish_PintCompleted(object sender, PintCompletedArgs e)
