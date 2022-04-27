@@ -7,6 +7,12 @@ namespace Cu.Pre.Delegates.Events.Cons
     {
         static void Main(string[] args)
         {
+            var program = new Program();
+            program.Run();
+        }
+
+        public void Run()
+        {
             int numberOfPints = 10;
             var pintDish = new PintDish(numberOfPints);
 
